@@ -1,0 +1,41 @@
+<h2 class="mb-4">Feedback Form</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input class="form-control" formControlName="name" />
+    <div
+      *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+      class="text-danger"
+    >
+      Name is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input class="form-control" formControlName="email" />
+    <div
+      *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+      class="text-danger"
+    >
+      Valid email is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Message</label>
+    <textarea
+      class="form-control"
+      rows="4"
+      formControlName="message"
+    ></textarea>
+    <div
+      *ngIf="form.get('message')?.invalid && form.get('message')?.touched"
+      class="text-danger"
+    >
+      Message is required.
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
